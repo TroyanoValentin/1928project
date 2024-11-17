@@ -130,6 +130,7 @@
     <ClCompile Include="1928project.cpp" />
     <ClCompile Include="Colors.cpp" />
     <ClCompile Include="Fight.cpp" />
+    <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Locations.cpp" />
     <ClCompile Include="Pictures.cpp" />
     <ClCompile Include="Stores.cpp" />
@@ -138,6 +139,7 @@
   <ItemGroup>
     <ClInclude Include="Colors.h" />
     <ClInclude Include="Fight.h" />
+    <ClInclude Include="Inventory.h" />
     <ClInclude Include="Locations.h" />
     <ClInclude Include="Pictures.h" />
     <ClInclude Include="Stores.h" />
