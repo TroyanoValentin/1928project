@@ -7,9 +7,16 @@ using namespace std;
 void RedStr(string str) {
 	cout << "\033[31m" << str << "\033[0m";
 }
+void UssrStr(string str) {
+	cout << "\033[38;2;255;0;0m" << str << "\033[0m";
+}
 
 void BlueStr(string str) {
 	cout << "\033[34m" << str << "\033[0m";
+}
+
+void GomyakStr(string str) {
+	cout << "\033[38;2;0;0;255m" << str << "\033[0m";
 }
 
 void GreenStr(string str) {

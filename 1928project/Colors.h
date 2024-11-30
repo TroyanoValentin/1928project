@@ -5,7 +5,9 @@
 using namespace std;
 
 void RedStr(string str);
+void UssrStr(string str);
 void BlueStr(string str);
+void GomyakStr(string str);
 void GreenStr(string str);
 void YellowStr(string str);
 void PurpleStr(string str);
