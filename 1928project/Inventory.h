@@ -22,7 +22,8 @@ public:
 		cout << "[ ÂÛ ÎÒÊĞÛËÈ ÈÍÂÅÍÒÀĞÜ ]";
 		cout << "\nÂÀØ ÈÍÂÅÍÒÀĞÜ: \n";
 		for (int i = 0; i < inventory.size(); i++) {
-			cout << inventory[i] << "\n";
+			YellowStr(inventory[i]);
+			cout << "\n";
 		}
 	}
 };
