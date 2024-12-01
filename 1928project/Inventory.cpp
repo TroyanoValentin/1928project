@@ -6,7 +6,11 @@
 
 using namespace std;
 
-string backpack = R"(                                                                                          
+
+
+class Inventory {
+protected:
+    string backpack = R"(                                                                                          
                                                                                           
                                                                                           
                                                                                           
@@ -52,9 +56,6 @@ string backpack = R"(
                                                                                           
                                                                                           
 )";
-
-class Inventory {
-protected:
     string punch = "%========%\n|  ”À¿ » |\n%========%";
     string pasport = "%=========%\n| œ¿—œŒ–“ |\n%=========%";
     vector <string> inventory = { punch, pasport };
