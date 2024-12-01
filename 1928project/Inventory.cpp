@@ -67,19 +67,29 @@ public:
 class BaseInv : public Inventory {
 public:
     void InvDo() const override {
-        cout << "\t\t\t\t    [ ÂÛ ÎÒÊÐÛËÈ ÈÍÂÅÍÒÀÐÜ ]\n\n" << backpack;
-        cout << endl << endl;
+        try {
+            if (inventory.size() == 0) {
+                throw inventory;
+            }
+            cout << "\t\t\t\t    [ ÂÛ ÎÒÊÐÛËÈ ÈÍÂÅÍÒÀÐÜ ]\n\n" << backpack;
+            cout << endl << endl;
 
-        string skip = "\nÍÀÆÌÈÒÅ [ Enter ] ÄËß ÏÐÎÄÎËÆÅÍÈß ";
-        UssrStr(skip);
-        cin.get();
+            string skip = "\nÍÀÆÌÈÒÅ [ Enter ] ÄËß ÏÐÎÄÎËÆÅÍÈß ";
+            UssrStr(skip);
+            cin.get();
 
-        Clear();
-        cout << "\nÂÀØ ÈÍÂÅÍÒÀÐÜ: \n";
-        for (int i = 0; i < inventory.size(); i++) {
-            YellowStr(inventory[i]);
-            cout << "\n";
+            Clear();
+            cout << "\nÂÀØ ÈÍÂÅÍÒÀÐÜ: \n";
+            for (int i = 0; i < inventory.size(); i++) {
+                YellowStr(inventory[i]);
+                cout << "\n";
+            }
         }
+        catch (...) {
+            string error = "\n[ ÂÀØ ÈÍÂÅÍÒÀÐÜ ÍÅ ÌÎÆÅÒ ÁÛÒÜ ÏÓÑÒ ]\n"; // universal
+            UssrStr(error);
+        }
+
     }
 };
 
