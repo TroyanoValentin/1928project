@@ -133,6 +133,7 @@
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Locations.cpp" />
     <ClCompile Include="Pictures.cpp" />
+    <ClCompile Include="PublicHouse.cpp" />
     <ClCompile Include="Stores.cpp" />
     <ClCompile Include="Text.cpp" />
   </ItemGroup>
@@ -142,6 +143,7 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Locations.h" />
     <ClInclude Include="Pictures.h" />
+    <ClInclude Include="PublicHouse.h" />
     <ClInclude Include="Stores.h" />
     <ClInclude Include="Text.h" />
   </ItemGroup>
