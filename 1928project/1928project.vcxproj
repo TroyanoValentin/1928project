@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="1928project.cpp" />
+    <ClCompile Include="Casino.cpp" />
     <ClCompile Include="Colors.cpp" />
     <ClCompile Include="Fight.cpp" />
     <ClCompile Include="Inventory.cpp" />
@@ -138,6 +139,7 @@
     <ClCompile Include="Text.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Casino.h" />
     <ClInclude Include="Colors.h" />
     <ClInclude Include="Fight.h" />
     <ClInclude Include="Inventory.h" />
