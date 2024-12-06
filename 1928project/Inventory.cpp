@@ -57,8 +57,17 @@ protected:
                                                                                           
 )";
     string punch = "%========%\n|  ”À¿ » |\n%========%";
+
     string pasport = "%=========%\n| œ¿—œŒ–“ |\n%=========%";
-    vector <string> inventory = { punch, pasport };
+
+    string scotch = "%==========%\n| »«ŒÀ≈Õ“¿ |\n%==========% ";
+    string lom = "%=====%\n| ÀŒÃ |\n%=====%";
+    string buff = "%==============%\n| ¡”“€À ¿ œ»¬¿ |\n|   ìDe Buffî  |\n%==============%";
+    string glass = "%========%\n| —“≈ ÀŒ |\n%========%";
+
+    string healing = "%=========%\n| À≈◊»À ¿ |\n%=========%";
+
+    vector <string> inventory = { punch, pasport, scotch, lom, buff, glass, healing };
 public:
     Inventory() {}
     virtual void InvDo() const = 0;
@@ -81,12 +90,23 @@ public:
             Clear();
             cout << "\n¬¿ÿ »Õ¬≈Õ“¿–‹: \n";
             for (int i = 0; i < inventory.size(); i++) {
-                YellowStr(inventory[i]);
+                if (inventory[i] == healing) {
+                    GreenStr(inventory[i]);
+                }
+                else if (inventory[i] == punch) {
+                    RedStr(inventory[i]);
+                }
+                else {
+                    YellowStr(inventory[i]);
+                }
                 cout << "\n";
             }
         }
         catch (...) {
             string error = "\n[ ¬¿ÿ »Õ¬≈Õ“¿–‹ Õ≈ ÃŒ∆≈“ ¡€“‹ œ”—“ ]\n"; // universal
+
+            [] { cout << "\n[ Õ≈ Õ¿…ƒ≈Õ€  ”À¿ » ]" << endl; } ();
+
             UssrStr(error);
         }
 
