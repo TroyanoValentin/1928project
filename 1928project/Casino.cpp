@@ -6,13 +6,13 @@
 
 using namespace std;
 void displayCards() {
-    cout << "\t\t --------- \t\t\t " << " --------- \t\t\t\t " << " --------- \t\t\t " << " --------- \n";
-    cout << "\t\t| J       |\t\t\t " << "| 10      |\t\t\t\t " << "| K       |\t\t\t " << "| Q       |\n";
-    cout << "\t\t|         |\t\t\t " << "|         |\t\t\t\t " << "|         |\t\t\t " << "|         |\n";
-    cout << "\t\t|    ♥    |\t\t\t " << "|     ♣   |\t\t\t\t " << "|     ♦   |\t\t\t " << "|     ♠   |\n";
-    cout << "\t\t|         |\t\t\t " << "|         |\t\t\t\t " << "|         |\t\t\t " << "|         |\n";
-    cout << "\t\t|       J |\t\t\t " << "|      10 |\t\t\t\t " << "|      K  |\t\t\t " << "|      Q  |\n";
-    cout << "\t\t --------- \t\t\t " << " --------- \t\t\t\t " << " --------- \t\t\t " << " --------- \n";
+    cout << " --------- \t\t\t " << " --------- \t\t\t " << " --------- \t\t\t " << " --------- \n";
+    cout << "| J       |\t\t\t " << "| 10      |\t\t\t " << "| K       |\t\t\t " << "| Q       |\n";
+    cout << "|         |\t\t\t " << "|         |\t\t\t " << "|         |\t\t\t " << "|         |\n";
+    cout << "|    ♥    |\t\t\t " << "|     ♣   |\t\t\t " << "|     ♦   |\t\t\t " << "|     ♠   |\n";
+    cout << "|         |\t\t\t " << "|         |\t\t\t " << "|         |\t\t\t " << "|         |\n";
+    cout << "|       J |\t\t\t " << "|      10 |\t\t\t " << "|      K  |\t\t\t " << "|      Q  |\n";
+    cout << " --------- \t\t\t " << " --------- \t\t\t " << " --------- \t\t\t " << " --------- \n";
 }
 class SlotMachine {
 protected:
@@ -190,6 +190,8 @@ public:
     void play1() {
         while (true) {
             int key1;
+            cout << endl;
+            cout << endl;
             displayCards();
             cout << "Меню:\n";
             cout << "1 - Поставить ставку\n";
@@ -236,18 +238,25 @@ public:
                             cesh -= mani;
                             break;
                         }
+                        if (chetchic == 21) {
+                            cout << "Вы выйграли\n";
+                            break;
+                        }
                     }
                     if (vubor == 2) {
                         if (chetchic <= 21) {
                             if (chetchic == 21) {
                                 cout << "Вы выиграли, собрав 21\n";
                                 cesh += mani * 2;
+                                break;
                             }
                             if (chetchic < 21 ){
                                 cout << "Вы проиграли, у вас меньше чем 21\n";
+                                break;
                             }
                             if (chetchic > 21) {
                                 cout << "вы проиграли у вас больше 21\n";
+                                break;
                             }
                         }
                     }
@@ -280,7 +289,10 @@ int main() {
     setlocale(LC_ALL, "Russian");
     int key_vubor;
     while (true) {
-        cout << "\t\t\t\t\t\t\t\t\t\tCASINO\n";
+        cout << "\t\t\t\t\t\tCASINO\n";
+        displayCards();
+        cout << endl;
+        cout << endl;
         cout << "Выберите игру:\n";
         cout << "1 - Слот-машина\n";
         cout << "2 - Рулетка\n";
