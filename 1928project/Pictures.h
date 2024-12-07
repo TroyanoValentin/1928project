@@ -6,5 +6,5 @@ using namespace std;
 
 void Konstebulant();
 void Kind_Man();
-void BOO!();
+void BOO();
 void Burocraty();
