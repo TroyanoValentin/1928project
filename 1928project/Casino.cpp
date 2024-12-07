@@ -5,7 +5,15 @@
 #include <limits> 
 
 using namespace std;
-
+void displayCards() {
+    cout << "\t\t --------- \t\t\t " << " --------- \t\t\t\t " << " --------- \t\t\t " << " --------- \n";
+    cout << "\t\t| J       |\t\t\t " << "| 10      |\t\t\t\t " << "| K       |\t\t\t " << "| Q       |\n";
+    cout << "\t\t|         |\t\t\t " << "|         |\t\t\t\t " << "|         |\t\t\t " << "|         |\n";
+    cout << "\t\t|    ♥    |\t\t\t " << "|     ♣   |\t\t\t\t " << "|     ♦   |\t\t\t " << "|     ♠   |\n";
+    cout << "\t\t|         |\t\t\t " << "|         |\t\t\t\t " << "|         |\t\t\t " << "|         |\n";
+    cout << "\t\t|       J |\t\t\t " << "|      10 |\t\t\t\t " << "|      K  |\t\t\t " << "|      Q  |\n";
+    cout << "\t\t --------- \t\t\t " << " --------- \t\t\t\t " << " --------- \t\t\t " << " --------- \n";
+}
 class SlotMachine {
 protected:
     int cesh = 100; // Баланс
@@ -171,7 +179,7 @@ private:
 
 public:
     A21() {
-        symbols1 = { 6, 7, 8, 9, 10, 11, 12, 13, 14 }; 
+        symbols1 = { 6, 7, 8, 9, 10, 11, 12, 13, 14 };
         srand(static_cast<unsigned int>(time(0)));
     }
 
@@ -182,6 +190,7 @@ public:
     void play1() {
         while (true) {
             int key1;
+            displayCards();
             cout << "Меню:\n";
             cout << "1 - Поставить ставку\n";
             cout << "2 - Посмотреть баланс\n";
@@ -212,6 +221,7 @@ public:
                 int chetchic = 0;
                 while (true) {
                     cout << "1 - Достать карту\n";
+                    cout << "2 - Стоп\n";
                     int vubor;
                     cout << "Выберите опцию: ";
                     cin >> vubor;
@@ -220,15 +230,26 @@ public:
                         int drawnSymbol = getRandomSymbol();
                         cout << "Выпала карта: " << drawnSymbol << endl;
                         chetchic += drawnSymbol;
-                        cout << "Текущий счёт: " << chetchic << endl; 
+                        cout << "Текущий счёт: " << chetchic << endl;
                         if (chetchic > 21) {
                             cout << "Вы проиграли, у вас перебор\n";
-                            cesh -= mani; 
-                            break; 
+                            cesh -= mani;
+                            break;
                         }
                     }
-                    else {
-                        cout << "Некорректный ввод, попробуйте снова.\n";
+                    if (vubor == 2) {
+                        if (chetchic <= 21) {
+                            if (chetchic == 21) {
+                                cout << "Вы выиграли, собрав 21\n";
+                                cesh += mani * 2;
+                            }
+                            if (chetchic < 21 ){
+                                cout << "Вы проиграли, у вас меньше чем 21\n";
+                            }
+                            if (chetchic > 21) {
+                                cout << "вы проиграли у вас больше 21\n";
+                            }
+                        }
                     }
                 }
                 if (chetchic <= 21) {
@@ -241,21 +262,20 @@ public:
                     }
                 }
             }
-            else if (key1 == 2) {
+             if (key1 == 2) {
                 cout << "У вас осталось " << cesh << endl;
             }
-            else if (key1 == 3) {
+             if (key1 == 3) {
                 cout << "Выход из игры. Спасибо за игру!\n";
                 return;
             }
-            else {
+             else {
                 cout << "Некорректный ввод. Пожалуйста, выберите снова.\n";
             }
         }
         system("cls");
     }
 };
-
 int main() {
     setlocale(LC_ALL, "Russian");
     int key_vubor;
