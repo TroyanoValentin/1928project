@@ -229,7 +229,7 @@ void Burocraty () {
 }
 
 void Nice_Coat() {
-    cout << R("                                                                                                    
+    cout << R"(                                                                                                    
                                                                                                     
                                                                                                     
                                                                                                     
@@ -301,11 +301,11 @@ void Nice_Coat() {
                                                                                                     
                                                                                                     
                                                                                                     
-                                                                                                    ");
+                                                                                                    )";
 }
 
 void Dress () {
-    cout << R("                                                                                                    
+    cout << R"(                                                                                                    
                                                                                                     
                                                                                                     
                                                                                                     
@@ -376,11 +376,11 @@ void Dress () {
                                                                                                     
                                                                                                     
                                                                                                     
-                                                                                                    ");
+                                                                                                    )";
 }
 
 void Nice_Shoes() {
-    cout << R("                                                                                                    
+    cout << R"(                                                                                                    
                                                                                                     
                                                                                                     
                                                                                                     
@@ -428,11 +428,11 @@ void Nice_Shoes() {
                                                                                .::..                
                                                                                                     
                                                                                                     
-                                                                                                    ");
+                                                                                                    )";
 }
 
 void Skirt() {
-    cout << R("                                                                                                    
+    cout << R"(                                                                                                    
                                                                                                     
                                                                                                     
                                                                                                     
@@ -480,7 +480,7 @@ void Skirt() {
                                                                                                     
                                                                                                     
                                                                                                     
-                                                                                                    ");
+                                                                                                    )";
 }
 
 
