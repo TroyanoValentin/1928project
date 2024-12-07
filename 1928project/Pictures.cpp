@@ -484,7 +484,7 @@ void Skirt() {
 }
 
 void Bag() {
-    cout << R"(                                                                                                    
+    string bag = R"(                                                                                                    
                                                                                                     
                                                                                                     
                                                                                                     
@@ -535,5 +535,6 @@ void Bag() {
                                                                                                     
                                                                                                     
                                                                                                     )";
+    YellowStr(bag);
 }
 
