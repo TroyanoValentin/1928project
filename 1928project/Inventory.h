@@ -14,7 +14,13 @@ protected:
     string bonecrasher = "/========\\\n|  ¿—“≈“ |\n\\========/"; //2
     string zatochka = "/=========\\\n| «¿“Œ◊ ¿ |\n\\=========/"; //3
     string rose = "/===========\\\n|  –Œ«Œ◊ ¿  |\n| ìDe Buffî |\n\\===========/"; //4
-    string stick = "/=======\\\n| œ4À 4 |\n\\=======/";
+    string stick = "/===$===\\\n| œ4À 4 |\n\\===$===/";
+    string knife = "/=====\\\n| ÕŒ∆ |\n\\=====/";
+
+    string fireson = "/--======--\\\n| ‘¿…≈–—ŒÕ |\n|  P-1921  |\n\\--======--/";
+    string blackwing = "/--======--\\\n| ¡À› ¬»Õ√ |\n|   L687   |\n\\--======--/";
+    string colt = "/--========--\\\n|    ŒÀ‹“    |\n| 13Trophies |\n\\--========--/";
+    string sf911 = "/--========--\\\n|  ¬»Õ“Œ¬ ¿  |\n|   SF911    |\n\\--========--/";
 
     string pasport = "%=========%\n| œ¿—œŒ–“ |\n%=========%";
 
@@ -30,7 +36,7 @@ protected:
     string franckohplant = "+-------------+\n|   –¿—“≈Õ»≈  |\n| ‘–¿Õ÷¿  Œ’¿ |\n+-------------+";
     string healing = "+---------+\n| À≈◊»À ¿ |\n+---------+";
 
-    vector <string> inventory = { punch, pasport, scotch, lom, buff, glass, healing, bonecrasher, franckohplant, zatochka, otm1, rose, otm2, stick, otm3 };
+    vector <string> inventory = { punch, pasport, blackwing, scotch, lom, colt, buff, glass, healing, bonecrasher, franckohplant, sf911, zatochka, otm1, rose, otm2, stick, otm3, knife, fireson };
 public:
     Inventory() {}
     virtual void InvDo() const = 0;
@@ -57,8 +63,11 @@ public:
                 if ((inventory[i] == healing) || (inventory[i] == franckohplant)) {
                     GreenStr(inventory[i]);
                 }
-                else if ((inventory[i] == punch) || (inventory[i] == bonecrasher) || (inventory[i] == zatochka) || (inventory[i] == rose)) {
+                else if ((inventory[i] == punch) || (inventory[i] == bonecrasher) || (inventory[i] == zatochka) || (inventory[i] == rose) || (inventory[i] == knife)) {
                     RedStr(inventory[i]);
+                }
+                else if ((inventory[i] == fireson) || (inventory[i] == blackwing) || (inventory[i] == colt) || (inventory[i] == sf911)) {
+                    CyanStr(inventory[i]);
                 }
                 else if ((inventory[i] == otm1) || (inventory[i] == otm2) || (inventory[i] == otm3)) {
                     WhiteStr(inventory[i]);
