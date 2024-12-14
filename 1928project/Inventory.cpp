@@ -21,6 +21,7 @@ protected:
     string blackwing = "/--======--\\\n| ¡À› ¬»Õ√ |\n|   L687   |\n\\--======--/";
     string colt = "/--========--\\\n|    ŒÀ‹“    |\n| 13Trophies |\n\\--========--/";
     string sf911 = "/--========--\\\n|  ¬»Õ“Œ¬ ¿  |\n|   SF911    |\n\\--========--/";
+    string nahan = "/--=======--\\\n| –≈¬ŒÀ‹≈–  |\n|   NAHAN   |\n\\--=======--/";
 
     string pasport = "%=========%\n| œ¿—œŒ–“ |\n%=========%";
 
@@ -36,7 +37,7 @@ protected:
     string franckohplant = "+-------------+\n|   –¿—“≈Õ»≈  |\n| ‘–¿Õ÷¿  Œ’¿ |\n+-------------+";
     string healing = "+---------+\n| À≈◊»À ¿ |\n+---------+";
 
-    vector <string> inventory = { punch, pasport, blackwing, scotch, lom, colt, buff, glass, healing, bonecrasher, franckohplant, sf911, zatochka, otm1, rose, otm2, stick, otm3, knife, fireson };
+    vector <string> inventory = { punch, pasport };
 public:
     Inventory() {}
     virtual void InvDo() const = 0;
@@ -58,27 +59,72 @@ public:
             cin.get();
 
             Clear();
-            cout << "\n¬¿ÿ »Õ¬≈Õ“¿–‹: \n";
-            for (int i = 0; i < inventory.size(); i++) {
-                if ((inventory[i] == healing) || (inventory[i] == franckohplant)) {
-                    GreenStr(inventory[i]);
+
+            string choi = "¬€¡≈–»“≈ ƒ≈…—“¬»≈ ¬ »Õ¬≈Õ“¿–≈:\n[1] - œŒ ¿«¿“‹ »Õ¬≈Õ“¿–‹\n[2] - ¬€¡–¿“‹ ¬≈ƒ”Ÿ»… œ–≈ƒÃ≈“\n[3] -  –¿‘“\n\n¬¿ÿ ¬€¡Œ–: ";
+            YellowStr(choi);
+            int vbr1;
+            cin >> vbr1;
+
+            cin.ignore();
+
+            UssrStr(skip);
+            cin.get();
+
+            Clear();
+
+            if (vbr1 == 1) {
+                cout << "\n¬¿ÿ »Õ¬≈Õ“¿–‹: \n";
+                for (int i = 0; i < inventory.size(); i++) {
+                    if ((inventory[i] == healing) || (inventory[i] == franckohplant)) {
+                        GreenStr(inventory[i]);
+                    }
+                    else if ((inventory[i] == punch) || (inventory[i] == bonecrasher) || (inventory[i] == zatochka) || (inventory[i] == rose) || (inventory[i] == knife)) {
+                        RedStr(inventory[i]);
+                    }
+                    else if ((inventory[i] == fireson) || (inventory[i] == blackwing) || (inventory[i] == colt) || (inventory[i] == sf911) || (inventory[i] == nahan)) {
+                        CyanStr(inventory[i]);
+                    }
+                    else if ((inventory[i] == otm1) || (inventory[i] == otm2) || (inventory[i] == otm3)) {
+                        WhiteStr(inventory[i]);
+                    }
+                    else if (inventory[i] == stick) {
+                        cout << "\033[38;5;57m" << inventory[i] << "\033[0m";
+                    }
+                    else {
+                        YellowStr(inventory[i]);
+                    }
+                    cout << "\n";
                 }
-                else if ((inventory[i] == punch) || (inventory[i] == bonecrasher) || (inventory[i] == zatochka) || (inventory[i] == rose) || (inventory[i] == knife)) {
-                    RedStr(inventory[i]);
+            }
+            if (vbr1 == 2) {
+
+            }
+
+            if (vbr1 == 3) {
+                int vbr2;
+                cout << "\n◊“Œ ¬€ ÃŒ∆≈“≈ — –¿‘“»“‹: \n";
+                for (int i = 0; i < inventory.size(); i++) {
+                    if (inventory[i] == buff) {
+                        cout << "\n[1] - –Œ«Œ◊ ¿ ìDe Buffî\n";
+                    }
                 }
-                else if ((inventory[i] == fireson) || (inventory[i] == blackwing) || (inventory[i] == colt) || (inventory[i] == sf911)) {
-                    CyanStr(inventory[i]);
+                string craft = "\n\n◊“Œ ¬€ ’Œ“»“≈ — –¿‘“»“‹?\n¬¿ÿ ¬€¡Œ–: ";
+                YellowStr(craft);
+                cin >> vbr2;
+                cin.ignore();
+
+                UssrStr(skip);
+                cin.get();
+
+                Clear();
+                if (vbr2 == 1) {
+                    cout << "[ ¬€ — –¿‘“»À» œ–≈ƒÃ≈“ ]\n";
+                    RedStr(rose);
+                    cout << "\n»\n";
+                    YellowStr(glass);
+                    cout << endl;
+
                 }
-                else if ((inventory[i] == otm1) || (inventory[i] == otm2) || (inventory[i] == otm3)) {
-                    WhiteStr(inventory[i]);
-                }
-                else if (inventory[i] == stick) {
-                    cout << "\033[38;5;57m" << inventory[i] << "\033[0m";
-                }
-                else {
-                    YellowStr(inventory[i]);
-                }
-                cout << "\n";
             }
         }
         catch (...) {
@@ -90,10 +136,6 @@ public:
         }
 
     }
-};
-
-class CraftInv : public Inventory {
-
 };
 
 class CheckInv : public Inventory {
