@@ -7,9 +7,9 @@
 using namespace std;
 
 
-
 class Inventory {
 protected:
+    // акхфмхи ани
     string punch = "/========\\\n| йскюйх |\n\\========/"; //1
     string bonecrasher = "/========\\\n| йюярер |\n\\========/"; //2
     string zatochka = "/=========\\\n| гюрнвйю |\n\\=========/"; //3
@@ -17,35 +17,39 @@ protected:
     string stick = "/===$===\\\n| о4кй4 |\n\\===$===/";
     string knife = "/=====\\\n| мнф |\n\\=====/";
 
+    // дюкэмхи ани
     string fireson = "/--======--\\\n| тюиепянм |\n|  P-1921  |\n\\--======--/";
     string blackwing = "/--======--\\\n| акщйбхмц |\n|   L687   |\n\\--======--/";
     string colt = "/--========--\\\n|   йнкэр    |\n| 13Trophies |\n\\--========--/";
     string sf911 = "/--========--\\\n|  бхмрнбйю  |\n|   SF911    |\n\\--========--/";
     string nahan = "/--=======--\\\n| пебнкэеп  |\n|   NAHAN   |\n\\--=======--/";
 
+    // упемэ
     string pasport = "%=========%\n| оюяонпр |\n%=========%";
 
+    // нрлшвйх
     string otm1 = "1====*====1\n| нрлшвйю |\n1=========1";
     string otm2 = "2==*===*==2\n| нрлшвйю |\n2=========2";
     string otm3 = "3=*==*==*=3\n| нрлшвйю |\n3=========3";
 
+    // люрепхюкш
     string scotch = "%==========%\n| хгнкемрю |\n%==========% ";
     string lom = "%=====%\n| кнл |\n%=====%";
     string buff = "%==============%\n| асршкйю охбю |\n|   ⌠De Buff■  |\n%==============%";
     string glass = "%========%\n| ярейкн |\n%========%";
 
+    // дкъ ухкк
     string franckohplant = "+-------------+\n|   пюяремхе  |\n| тпюмжю йную |\n+-------------+";
     string healing = "+---------+\n| кевхкйю |\n+---------+";
 
-    vector <string> inventory = { punch, pasport };
+    vector <string> inventory = { punch, pasport, buff, stick, buff, franckohplant };
 public:
     Inventory() {}
-    virtual void InvDo() const = 0;
 };
 
 class BaseInv : public Inventory {
 public:
-    void InvDo() const override {
+    void InvDo() {
         try {
             if (inventory.size() == 0) {
                 throw inventory;
@@ -88,13 +92,19 @@ public:
                         WhiteStr(inventory[i]);
                     }
                     else if (inventory[i] == stick) {
-                        cout << "\033[38;5;57m" << inventory[i] << "\033[0m";
+                        cout << "\033[38;2;255;0;255m" << inventory[i] << "\033[0m";
                     }
                     else {
                         YellowStr(inventory[i]);
                     }
                     cout << "\n";
                 }
+                cout << endl;
+
+                UssrStr(skip);
+                cin.get();
+
+                Clear();
             }
             if (vbr1 == 2) {
 
@@ -107,6 +117,12 @@ public:
                     if (inventory[i] == buff) {
                         cout << "\n[1] - пнгнвйю ⌠De Buff■\n";
                     }
+                    if (inventory[i] == franckohplant) {
+                        cout << "\n[2] - кевхкйю\n";
+                    }
+                    if (inventory[i] == glass && inventory[i] == scotch) {
+                        cout << "\n[2] - кевхкйю\n";
+                    }
                 }
                 string craft = "\n\nврн бш унрхре яйпютрхрэ?\nбюь бшанп: ";
                 YellowStr(craft);
@@ -118,12 +134,42 @@ public:
 
                 Clear();
                 if (vbr2 == 1) {
-                    cout << "[ бш яйпютрхкх опедлер ]\n";
+                    cout << "[ бш яйпютрхкх опедлер ]\n\n";
                     RedStr(rose);
                     cout << "\nх\n";
                     YellowStr(glass);
                     cout << endl;
 
+
+                    UssrStr(skip);
+                    cin.get();
+
+                    Clear();
+                    pushUP_rose_glass();
+                }
+                if (vbr2 == 2) {
+                    cout << "[ бш яйпютрхкх опедлер ]\n\n";
+                    GreenStr(healing);
+                    cout << endl;
+
+
+                    UssrStr(skip);
+                    cin.get();
+
+                    Clear();
+                    pushUP_healing();
+                }
+                if (vbr2 == 3) {
+                    cout << "[ бш яйпютрхкх опедлер ]\n\n";
+                    RedStr(zatochka);
+                    cout << endl;
+
+
+                    UssrStr(skip);
+                    cin.get();
+
+                    Clear();
+                    pushUP_zatochka();
                 }
             }
         }
@@ -135,6 +181,57 @@ public:
             UssrStr(error);
         }
 
+    }
+
+    void pushUP_rose_glass() {
+        inventory.push_back(glass);
+        inventory.push_back(rose);
+
+        string valueToRemove = buff;
+
+        auto it = find(inventory.begin(), inventory.end(), valueToRemove);
+        if (it != inventory.end()) {
+            inventory.erase(it);
+        }
+    }
+
+    void pushUP_healing() {
+        inventory.push_back(healing);
+
+        string valueToRemove = franckohplant;
+
+        auto it = find(inventory.begin(), inventory.end(), valueToRemove);
+        if (it != inventory.end()) {
+            inventory.erase(it);
+        }
+    }
+
+    void pushUP_healing() {
+        inventory.push_back(healing);
+
+        string valueToRemove = franckohplant;
+
+        auto it = find(inventory.begin(), inventory.end(), valueToRemove);
+        if (it != inventory.end()) {
+            inventory.erase(it);
+        }
+    }
+
+    void pushUP_zatochka() {
+        inventory.push_back(zatochka);
+
+        string valueToRemove1 = glass;
+        string valueToRemove2 = scotch;
+
+        auto it1 = find(inventory.begin(), inventory.end(), valueToRemove1);
+        if (it1 != inventory.end()) {
+            inventory.erase(it1);
+        }
+
+        auto it2 = find(inventory.begin(), inventory.end(), valueToRemove2);
+        if (it2 != inventory.end()) {
+            inventory.erase(it2);
+        }
     }
 };
 
