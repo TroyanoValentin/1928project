@@ -42,7 +42,7 @@ protected:
     string franckohplant = "+-------------+\n|   –¿—“≈Õ»≈  |\n| ‘–¿Õ÷¿  Œ’¿ |\n+-------------+";
     string healing = "+---------+\n| À≈◊»À ¿ |\n+---------+";
 
-    vector <string> inventory = { punch, pasport, buff, stick, buff, franckohplant };
+    vector <string> inventory = { punch, pasport, buff, stick, buff, franckohplant, scotch, lom };
 public:
     Inventory() {}
 };
@@ -64,7 +64,7 @@ public:
 
             Clear();
 
-            string choi = "¬€¡≈–»“≈ ƒ≈…—“¬»≈ ¬ »Õ¬≈Õ“¿–≈:\n[1] - œŒ ¿«¿“‹ »Õ¬≈Õ“¿–‹\n[2] - ¬€¡–¿“‹ ¬≈ƒ”Ÿ»… œ–≈ƒÃ≈“\n[3] -  –¿‘“\n\n¬¿ÿ ¬€¡Œ–: ";
+            string choi = "¬€¡≈–»“≈ ƒ≈…—“¬»≈ ¬ »Õ¬≈Õ“¿–≈:\n[1] - œŒ ¿«¿“‹ »Õ¬≈Õ“¿–‹\n[2] - ¬€¡–¿“‹ ¬≈ƒ”Ÿ»… œ–≈ƒÃ≈“\n[3] -  –¿‘“\n[4] - ¬€’Œƒ\n\n¬¿ÿ ¬€¡Œ–: ";
             YellowStr(choi);
             int vbr1;
             cin >> vbr1;
@@ -111,19 +111,42 @@ public:
             }
 
             if (vbr1 == 3) {
+
+                bool craft1 = false;
+                bool craft2 = false;
+                bool craft3 = false;
+                bool craft4 = false;
+
                 int vbr2;
                 cout << "\n◊“Œ ¬€ ÃŒ∆≈“≈ — –¿‘“»“‹: \n";
-                for (int i = 0; i < inventory.size(); i++) {
-                    if (inventory[i] == buff) {
-                        cout << "\n[1] - –Œ«Œ◊ ¿ ìDe Buffî\n";
-                    }
-                    if (inventory[i] == franckohplant) {
-                        cout << "\n[2] - À≈◊»À ¿\n";
-                    }
-                    if (inventory[i] == glass && inventory[i] == scotch) {
-                        cout << "\n[2] - À≈◊»À ¿\n";
-                    }
+
+
+                auto it1 = find(inventory.begin(), inventory.end(), buff);
+                auto it2 = find(inventory.begin(), inventory.end(), franckohplant);
+                auto it3 = find(inventory.begin(), inventory.end(), glass);
+                auto it4 = find(inventory.begin(), inventory.end(), scotch);
+                auto it5 = find(inventory.begin(), inventory.end(), lom);
+
+
+                if (it1 != inventory.end()) {
+                    cout << "\n[1] - –Œ«Œ◊ ¿ ìDe Buffî\n";
+                    craft1 = true;
                 }
+                if (it2 != inventory.end()) {
+                    cout << "\n[2] - À≈◊»À ¿\n";
+                    craft2 = true;
+                }
+
+                if ((it3 != inventory.end()) && (it4 != inventory.end())) {
+                    cout << "\n[3] - «¿“Œ◊ ¿\n";
+                    craft3 = true;
+                }
+
+                if ((it5 != inventory.end()) && (it4 != inventory.end())) {
+                    cout << "\n[4] -  ¿—“≈“\n";
+                    craft4 = true;
+                }
+
                 string craft = "\n\n◊“Œ ¬€ ’Œ“»“≈ — –¿‘“»“‹?\n¬¿ÿ ¬€¡Œ–: ";
                 YellowStr(craft);
                 cin >> vbr2;
@@ -133,44 +156,79 @@ public:
                 cin.get();
 
                 Clear();
-                if (vbr2 == 1) {
-                    cout << "[ ¬€ — –¿‘“»À» œ–≈ƒÃ≈“ ]\n\n";
-                    RedStr(rose);
-                    cout << "\n»\n";
-                    YellowStr(glass);
-                    cout << endl;
 
+                if (vbr2 == 1) {
+                    if (craft1 == false) {
+                        cout << "[ ›“Œ√Œ Õ≈“ ¬ —œ»— ≈  –¿‘“Œ¬ ]\n\n";
+                    }
+                    else {
+                        cout << "[ ¬€ — –¿‘“»À» œ–≈ƒÃ≈“ ]\n\n";
+                        RedStr(rose);
+                        cout << "\n\t»\n";
+                        YellowStr(glass);
+                        cout << endl;
+                        pushUP_rose_glass();
+                    }
 
                     UssrStr(skip);
                     cin.get();
 
                     Clear();
-                    pushUP_rose_glass();
                 }
                 if (vbr2 == 2) {
-                    cout << "[ ¬€ — –¿‘“»À» œ–≈ƒÃ≈“ ]\n\n";
-                    GreenStr(healing);
-                    cout << endl;
-
+                    if (craft2 == false) {
+                        cout << "[ ›“Œ√Œ Õ≈“ ¬ —œ»— ≈  –¿‘“Œ¬ ]\n\n";
+                    }
+                    else {
+                        cout << "[ ¬€ — –¿‘“»À» œ–≈ƒÃ≈“ ]\n\n";
+                        GreenStr(healing);
+                        cout << endl;
+                        pushUP_healing();
+                    }
 
                     UssrStr(skip);
                     cin.get();
 
                     Clear();
-                    pushUP_healing();
                 }
                 if (vbr2 == 3) {
-                    cout << "[ ¬€ — –¿‘“»À» œ–≈ƒÃ≈“ ]\n\n";
-                    RedStr(zatochka);
-                    cout << endl;
-
+                    if (craft3 == false) {
+                        cout << "[ ›“Œ√Œ Õ≈“ ¬ —œ»— ≈  –¿‘“Œ¬ ]\n\n";
+                    }
+                    else {
+                        cout << "[ ¬€ — –¿‘“»À» œ–≈ƒÃ≈“ ]\n\n";
+                        RedStr(zatochka);
+                        cout << endl;
+                        pushUP_zatochka();
+                    }
 
                     UssrStr(skip);
                     cin.get();
 
                     Clear();
-                    pushUP_zatochka();
                 }
+
+                if (vbr2 == 4) {
+                    if (craft4 == false) {
+                        cout << "[ ›“Œ√Œ Õ≈“ ¬ —œ»— ≈  –¿‘“Œ¬ ]\n\n";
+                    }
+                    else {
+                        cout << "[ ¬€ — –¿‘“»À» œ–≈ƒÃ≈“ ]\n\n";
+                        RedStr(bonecrasher);
+                        cout << endl;
+                        pushUP_bonecrasher();
+                    }
+
+                    cin.ignore();
+                    UssrStr(skip);
+                    cin.get();
+
+                    Clear();
+                }
+            }
+            if (vbr1 == 4) {
+                string z = "\n[ ¬€ «¿ –€À» »Õ¬≈“Õ¿–‹ ]";
+                UssrStr(z);
             }
         }
         catch (...) {
@@ -206,17 +264,6 @@ public:
         }
     }
 
-    void pushUP_healing() {
-        inventory.push_back(healing);
-
-        string valueToRemove = franckohplant;
-
-        auto it = find(inventory.begin(), inventory.end(), valueToRemove);
-        if (it != inventory.end()) {
-            inventory.erase(it);
-        }
-    }
-
     void pushUP_zatochka() {
         inventory.push_back(zatochka);
 
@@ -224,12 +271,23 @@ public:
         string valueToRemove2 = scotch;
 
         auto it1 = find(inventory.begin(), inventory.end(), valueToRemove1);
-        if (it1 != inventory.end()) {
-            inventory.erase(it1);
-        }
-
         auto it2 = find(inventory.begin(), inventory.end(), valueToRemove2);
-        if (it2 != inventory.end()) {
+        if (it1 != inventory.end() && it2 != inventory.end()) {
+            inventory.erase(it1);
+            inventory.erase(it2);
+        }
+    }
+
+    void pushUP_bonecrasher() {
+        inventory.push_back(bonecrasher);
+
+        string valueToRemove1 = lom;
+        string valueToRemove2 = scotch;
+
+        auto it1 = find(inventory.begin(), inventory.end(), valueToRemove1);
+        auto it2 = find(inventory.begin(), inventory.end(), valueToRemove2);
+        if (it1 != inventory.end() && it2 != inventory.end()) {
+            inventory.erase(it1);
             inventory.erase(it2);
         }
     }
