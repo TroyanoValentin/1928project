@@ -116,6 +116,8 @@ public:
                 bool craft2 = false;
                 bool craft3 = false;
                 bool craft4 = false;
+                bool craft5 = false;
+                bool craft6 = false;
 
                 int vbr2;
                 cout << "\n×ÒÎ ÂÛ ÌÎÆÅÒÅ ÑÊĞÀÔÒÈÒÜ: \n";
@@ -145,6 +147,16 @@ public:
                 if ((it5 != inventory.end()) && (it4 != inventory.end())) {
                     cout << "\n[4] - ÊÀÑÒÅÒ\n";
                     craft4 = true;
+                }
+
+                if ((it5 != inventory.end()) && (it4 != inventory.end())) {
+                    cout << "\n[5] - ÎÒÌÛ×ÊÀ LVL: 1\n";
+                    craft5 = true;
+                }
+
+                if ((it5 != inventory.end()) && (it4 != inventory.end()) && (it3 != inventory.end())) {
+                    cout << "\n[6] - ÎÒÌÛ×ÊÀ LVL: 2\n";
+                    craft6 = true;
                 }
 
                 string craft = "\n\n×ÒÎ ÂÛ ÕÎÒÈÒÅ ÑÊĞÀÔÒÈÒÜ?\nÂÀØ ÂÛÁÎĞ: ";
@@ -225,6 +237,42 @@ public:
 
                     Clear();
                 }
+
+                if (vbr2 == 5) {
+                    if (craft5 == false) {
+                        cout << "[ İÒÎÃÎ ÍÅÒ Â ÑÏÈÑÊÅ ÊĞÀÔÒÎÂ ]\n\n";
+                    }
+                    else {
+                        cout << "[ ÂÛ ÑÊĞÀÔÒÈËÈ ÏĞÅÄÌÅÒ ]\n\n";
+                        WhiteStr(otm1);
+                        cout << endl;
+                        pushUP_Otm1();
+                    }
+
+                    cin.ignore();
+                    UssrStr(skip);
+                    cin.get();
+
+                    Clear();
+                }
+
+                if (vbr2 == 6) {
+                    if (craft6 == false) {
+                        cout << "[ İÒÎÃÎ ÍÅÒ Â ÑÏÈÑÊÅ ÊĞÀÔÒÎÂ ]\n\n";
+                    }
+                    else {
+                        cout << "[ ÂÛ ÑÊĞÀÔÒÈËÈ ÏĞÅÄÌÅÒ ]\n\n";
+                        WhiteStr(otm2);
+                        cout << endl;
+                        pushUP_Otm2();
+                    }
+
+                    cin.ignore();
+                    UssrStr(skip);
+                    cin.get();
+
+                    Clear();
+                }
             }
             if (vbr1 == 4) {
                 string z = "\n[ ÂÛ ÇÀÊĞÛËÈ ÈÍÂÅÒÍÀĞÜ ]";
@@ -287,6 +335,36 @@ public:
         auto it1 = find(inventory.begin(), inventory.end(), valueToRemove1);
         auto it2 = find(inventory.begin(), inventory.end(), valueToRemove2);
         if (it1 != inventory.end() && it2 != inventory.end()) {
+            inventory.erase(it1);
+            inventory.erase(it2);
+        }
+    }
+
+    void pushUP_Otm1() {
+        inventory.push_back(otm1);
+
+        string valueToRemove1 = lom;
+        string valueToRemove2 = scotch;
+
+        auto it1 = find(inventory.begin(), inventory.end(), valueToRemove1);
+        auto it2 = find(inventory.begin(), inventory.end(), valueToRemove2);
+        if (it1 != inventory.end() && it2 != inventory.end()) {
+            inventory.erase(it1);
+            inventory.erase(it2);
+        }
+    }
+
+    void pushUP_Otm2() {
+        inventory.push_back(otm2);
+
+        string valueToRemove1 = lom;
+        string valueToRemove2 = scotch;
+        string valueToRemove3 = glass;
+
+        auto it1 = find(inventory.begin(), inventory.end(), valueToRemove1);
+        auto it2 = find(inventory.begin(), inventory.end(), valueToRemove2);
+        auto it3 = find(inventory.begin(), inventory.end(), valueToRemove3);
+        if (it1 != inventory.end() && it2 != inventory.end() && it3 != inventory.end()) {
             inventory.erase(it1);
             inventory.erase(it2);
         }
