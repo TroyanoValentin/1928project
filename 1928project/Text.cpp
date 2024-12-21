@@ -1,17 +1,56 @@
 #include <iostream>
-#include <vector>
 #include <string>
-#include <algorithm>
 #include <iomanip>
 using namespace std;
+
+class Gan {
+protected:
+    int palca;
+    int koctet_HANIMARS;
+    int knife_SFN_Version_1;
+    int pistol_Colt_13Trophies;
+    int vintofca_SF911_Autmnfield;
+    int rifle_NAHAN;
+    int pylemyt_Fireson_P_1921;
+    int pylemyt_Blackwing_L687;
+
+public:
+    Gan() {
+        palca = 10;
+        koctet_HANIMARS = 15;
+        knife_SFN_Version_1 = 25;
+        pistol_Colt_13Trophies = 35;
+        vintofca_SF911_Autmnfield = 40;
+        rifle_NAHAN = 20;
+        pylemyt_Fireson_P_1921 = 50;
+        pylemyt_Blackwing_L687 = 55;
+    }
+};
+
+class Vyvod : public Gan {
+public:
+    void displayWeaponsInfo() {
+        cout << "1. Палка: " << palca << " урон\n";
+        cout << "2. Кулак ХАНИМАРС: " << koctet_HANIMARS << " урон\n";
+        cout << "3. Нож SFN Версия 1: " << knife_SFN_Version_1 << " урон\n";
+        cout << "4. Пистолет Colt 13 Trophies: " << pistol_Colt_13Trophies << " урон\n";
+        cout << "5. Винтовка SF911 Autumnfield: " << vintofca_SF911_Autmnfield << " урон\n";
+        cout << "6. Револьвер NAHAN: " << rifle_NAHAN << " урон\n";
+        cout << "7. Пулемет Fyerson P-1921: " << pylemyt_Fireson_P_1921 << " урон\n";
+        cout << "8. Пулемет Blackwing L687: " << pylemyt_Blackwing_L687 << " урон\n";
+    }
+};
+
 class Info {
 protected:
     string name;
     int skils;
     int hp;
     int kol_vs; // количество боёв
+    int palkaDamage; // Урон от палки
+
 public:
-    Info() : skils(0), hp(0), kol_vs(0) {}
+    Info() : skils(0), hp(0), kol_vs(0), palkaDamage(10) {} // Инициализация урона от палки
 
     virtual void printInfo() const = 0;
 
@@ -27,9 +66,14 @@ public:
             skils = 12;
         }
     }
+
     string getStars() const {
         int starCount = skils / 2;
         return string(starCount, '*');
+    }
+
+    int getPalkaDamage() const { // Метод для получения урона от палки
+        return palkaDamage;
     }
 };
 
@@ -40,16 +84,18 @@ public:
         name = "Мак Оуен Оруэл";
         skils = 6;
         hp = 100;
-        kol_vs = 22; 
+        kol_vs = 22;
     }
+
     void printInfo() const override {
-        const_cast<Gl*>(this)->increaseSkills(); 
-        cout << "+---------------------+\n";
+        const_cast<Gl*>(this)->increaseSkills();
+        cout << "+-------------------------+\n";
         cout << " Name:    " << setw(10) << left << name << " \n";
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
+        cout << " Gan:     " << setw(10) << "палка : " << getPalkaDamage() << " урон\n";
         cout << " Skills:  " << getStars() << " \n";
-        cout << "+---------------------+\n";
+        cout << "+-------------------------+\n";
     }
 };
 
@@ -62,14 +108,16 @@ public:
         hp = 100;
         kol_vs = 8; // Пример: меньше 10 боёв
     }
+
     void printInfo() const override {
-        const_cast<Seller*>(this)->increaseSkills(); 
-        cout << "+---------------------+\n";
+        const_cast<Seller*>(this)->increaseSkills();
+        cout << "+-------------------------+\n";
         cout << " Name:    " << setw(10) << left << name << " \n";
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
+        cout << " Gan:     " << setw(10) << "палка : " << getPalkaDamage() << " урон\n";
         cout << " Skills:  " << getStars() << " \n";
-        cout << "+---------------------+\n";
+        cout << "+-------------------------+\n";
     }
 };
 
@@ -80,16 +128,18 @@ public:
         name = "Горожане";
         skils = 6;
         hp = 100;
-        kol_vs = 15; 
+        kol_vs = 15;
     }
+
     void printInfo() const override {
-        const_cast<The_townspeople*>(this)->increaseSkills(); 
-        cout << "+---------------------+\n";
+        const_cast<The_townspeople*>(this)->increaseSkills();
+        cout << "+-------------------------+\n";
         cout << " Name:    " << setw(10) << left << name << " \n";
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
+        cout << " Gan:     " << setw(10) << "палка : " << getPalkaDamage() << " урон\n";
         cout << " Skills:  " << getStars() << " \n";
-        cout << "+---------------------+\n";
+        cout << "+-------------------------+\n";
     }
 };
 
@@ -100,17 +150,18 @@ public:
         name = "Мафия";
         skils = 6;
         hp = 100;
-        kol_vs = 5; 
+        kol_vs = 5;
     }
+
     void printInfo() const override {
-  
-        const_cast<Mafia*>(this)->increaseSkills(); 
-        cout << "+---------------------+\n";
+        const_cast<Mafia*>(this)->increaseSkills();
+        cout << "+-------------------------+\n";
         cout << " Name:    " << setw(10) << left << name << " \n";
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
+        cout << " Gan:     " << setw(10) << "палка : " << getPalkaDamage() << " урон\n";
         cout << " Skills:  " << getStars() << " \n";
-        cout << "+---------------------+\n";
+        cout << "+-------------------------+\n";
     }
 };
 
@@ -121,17 +172,18 @@ public:
         name = "Полицеские";
         skils = 6;
         hp = 100;
-        kol_vs = 20; 
+        kol_vs = 20;
     }
-    void printInfo() const override {
 
-        const_cast<Polis*>(this)->increaseSkills(); 
-        cout << "+---------------------+\n";
+    void printInfo() const override {
+        const_cast<Polis*>(this)->increaseSkills();
+        cout << "+-------------------------+\n";
         cout << " Name:    " << setw(10) << left << name << " \n";
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
+        cout << " Gan:     " << setw(10) << "палка : " << getPalkaDamage() << " урон\n";
         cout << " Skills:  " << getStars() << " \n";
-        cout << "+---------------------+\n";
+        cout << "+-------------------------+\n";
     }
 };
 
@@ -144,14 +196,16 @@ public:
         hp = 100;
         kol_vs = 11;
     }
+
     void printInfo() const override {
-        const_cast<Activists*>(this)->increaseSkills(); 
-        cout << "+---------------------+\n";
+        const_cast<Activists*>(this)->increaseSkills();
+        cout << "+-------------------------+\n";
         cout << " Name:    " << setw(10) << left << name << " \n";
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
+        cout << " Gan:     " << setw(10) << "палка : " << getPalkaDamage() << " урон\n";
         cout << " Skills:  " << getStars() << " \n";
-        cout << "+---------------------+\n";
+        cout << "+-------------------------+\n";
     }
 };
 
@@ -192,6 +246,5 @@ int main() {
     vuvod = &object_Activists;
     vuvod->printInfo();
     cout << endl;
-
     return 0;
 }
