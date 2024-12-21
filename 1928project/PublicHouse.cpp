@@ -45,17 +45,34 @@ void NoNameMan() {
 	cout << "\n[ ÂÎ ÂÐÅÌß ÏÐÎÖÅÑÑÀ ÂÛ ÐÅØÈËÈ ÎÑÌÎÒÐÅÒÜ ÌÓÆ×ÈÍÓ ÏÅÐÅÄ ÂÀÌÈ, ]\n [ ÂÛ ÓÂÈÄÅËÈ ÒÅÌÍÎÊÎÆÅÃÎ ÊÐÅÏÊÎÃÎ ÌÓÆ×ÈÍÓ Â ×¨ÐÍÎÌ ËÀÒÅÊÑÍÎÌ ÊÎÑÒÞÌÅ  ]\n";
 }
 
-class PHdo : public PublicHouse {
+void PHdo() {
+	s96 ninetysix; sGoodJob GJ; sHardCore HC;
+	PublicHouse* ptr96 = &ninetysix; PublicHouse* ptrGJ = &GJ; PublicHouse* ptrHC = &HC;
 	cout << "ÂÛ ÇÀØËÈ Â ÏÓÁËÈ×ÍÛÉ ÄÎÌ, ÏÅÐÅÄ ÑÎÁÎÉ ÂÛ ÓÂÈÄÅËÈ ØÂÀÐÖÌÅÍÀ Â ØÈÊÀÐÍÎÉ ÊÐÀÑÍÎÉ ØÓÁÎÉ.\nÂÛ ÑÐÀÇÓ ÏÎÍßËÈ, ×ÒÎ ÎÍ ÁÛË ÊÀÊ ÌÈÍÈÌÓÌ ÊÀÊ-ÒÎ ÑÂßÇÀÍ Ñ ÀÄÌÈÍÈÑÒÐÀÖÈÅÉ ÄÀÍÍÎÃÎ ÊÓËÜÒÓÐÍÎÃÎ ÇÀÂÅÄÅÍÈß.";
 	cout << "\n\nÂÀØÈ ÄÅÉÑÒÂÈß:\n[1] - ÂÎÑÏÎËÜÇÎÂÀÒÜÑß ÓÑËÓÃÎÉ\n[2] - ÓÉÒÈ\n\nÂÀØ ÂÛÁÎÐ: ";
 	int vibor;
 	cin >> vibor;
 	switch (vibor) {
 	case 1:
-		break;
-	case 2:
-		break;
-	case 3:
-		break;
+		cout << "ÂÛÁÅÐÈÒÅ ÓÑËÓÃÓ:\n[1] - ÓÑËÓÃÀ \"96\"\n[2] - ÓÑËÓÃÀ \"Good Job\"\n[3] - ÓÑËÓÃÀ \"Hard Core\"\n\nÂÀØ ÂÛÁÎÐ : ";
+		cin >> vibor;
+		switch (vibor) {
+		case 1:
+			ptr96->Service();
+			cout << "\n\nÂÀØÈ ÄÅÉÑÒÂÈß:\n[1] - ÎÑÌÎÒÐÅÒÜ\n[2] - Îêîí÷èòü\n\nÂÀØ ÂÛÁÎÐ: ";
+			switch (vibor) {
+			case 1:
+				NoNameWoman96();
+				break;
+			case 2:
+				break;
+			default:
+				break;
+			}
+			break;
+		default:
+			break;
+		}
 	}
+
 };
