@@ -3,57 +3,76 @@
 #include <iomanip>
 using namespace std;
 
+#include <iostream>
+#include <string>
+using namespace std;
+
 class Gan {
 protected:
-    int palca;
-    int koctet_HANIMARS;
-    int knife_SFN_Version_1;
-    int pistol_Colt_13Trophies;
-    int vintofca_SF911_Autmnfield;
-    int rifle_NAHAN;
-    int pylemyt_Fireson_P_1921;
-    int pylemyt_Blackwing_L687;
+    string palca;
+    string koctet_HANIMARS;
+    string knife_SFN_Version_1;
+    string pistol_Colt_13Trophies;
+    string vintofca_SF911_Autmnfield;
+    string rifle_NAHAN;
+    string pylemyt_Fireson_P_1921;
+    string pylemyt_Blackwing_L687;
+    //////
+    int palcaDamage;
+    int koctetDamage;
+    int knifeDamage;
+    int pistolDamage;
+    int vintofcaDamage;
+    int rifleDamage;
+    int pylemytFiresonDamage;
+    int pylemytBlackwingDamage;
 
 public:
-    Gan() {
-        palca = 10;
-        koctet_HANIMARS = 15;
-        knife_SFN_Version_1 = 25;
-        pistol_Colt_13Trophies = 35;
-        vintofca_SF911_Autmnfield = 40;
-        rifle_NAHAN = 20;
-        pylemyt_Fireson_P_1921 = 50;
-        pylemyt_Blackwing_L687 = 55;
-    }
+    Gan()
+        : palca("Палка"),
+        koctet_HANIMARS("Коctет HANIMARS"),
+        knife_SFN_Version_1("Нож SFN Version 1"),
+        pistol_Colt_13Trophies("Пистолет Colt 13 Trophies"),
+        vintofca_SF911_Autmnfield("Винтовка SF911 Autumnfield"),
+        rifle_NAHAN("Винтовка NAHAN"),
+        pylemyt_Fireson_P_1921("Пулемет Fireson P 1921"),
+        pylemyt_Blackwing_L687("Пулемет Blackwing L687"),
+        palcaDamage(10),
+        koctetDamage(30), 
+        knifeDamage(25),
+        pistolDamage(20),
+        vintofcaDamage(35), 
+        rifleDamage(40), 
+        pylemytFiresonDamage(50), 
+        pylemytBlackwingDamage(55)
+    {} 
 };
 
-class Vyvod : public Gan {
-public:
-    void displayWeaponsInfo() {
-        cout << "1. Палка: " << palca << " урон\n";
-        cout << "2. Кулак ХАНИМАРС: " << koctet_HANIMARS << " урон\n";
-        cout << "3. Нож SFN Версия 1: " << knife_SFN_Version_1 << " урон\n";
-        cout << "4. Пистолет Colt 13 Trophies: " << pistol_Colt_13Trophies << " урон\n";
-        cout << "5. Винтовка SF911 Autumnfield: " << vintofca_SF911_Autmnfield << " урон\n";
-        cout << "6. Револьвер NAHAN: " << rifle_NAHAN << " урон\n";
-        cout << "7. Пулемет Fyerson P-1921: " << pylemyt_Fireson_P_1921 << " урон\n";
-        cout << "8. Пулемет Blackwing L687: " << pylemyt_Blackwing_L687 << " урон\n";
-    }
-};
-
-class Info {
+class Info : public Gan{
 protected:
     string name;
     int skils;
     int hp;
-    int kol_vs; // количество боёв
-    int palkaDamage; // Урон от палки
+    int kol_vs;
+    int palkaDamage; 
+    int koctetDamage;
+    int knifeDamage;
+    int pistolDamage;
+    int vintofcaDamage;
+    int rifleDamage;
+    int pylemytFiresonDamage;
+    int pylemytBlackwingDamage;
 
 public:
-    Info() : skils(0), hp(0), kol_vs(0), palkaDamage(10) {} // Инициализация урона от палки
-
+    Info() : skils(0), hp(0), kol_vs(0), palkaDamage(10), koctetDamage(30),  
+        knifeDamage(25),     
+        pistolDamage(20),       
+        vintofcaDamage(35),  
+        rifleDamage(40),         
+        pylemytFiresonDamage(50), 
+        pylemytBlackwingDamage(55) 
+    {} 
     virtual void printInfo() const = 0;
-
     void increaseSkills() {
         if (kol_vs > 20) {
             skils += 3; // Увеличиваем на 3, если больше 20 боёв
@@ -72,7 +91,7 @@ public:
         return string(starCount, '*');
     }
 
-    int getPalkaDamage() const { // Метод для получения урона от палки
+    int getDamage() const { // Метод для получения урона 
         return palkaDamage;
     }
 };
@@ -93,7 +112,7 @@ public:
         cout << " Name:    " << setw(10) << left << name << " \n";
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
-        cout << " Gan:     " << setw(10) << "палка : " << getPalkaDamage() << " урон\n";
+        cout << " Gan:     " << setw(10) <<  palca  << getDamage() << " урон\n";
         cout << " Skills:  " << getStars() << " \n";
         cout << "+-------------------------+\n";
     }
@@ -115,7 +134,7 @@ public:
         cout << " Name:    " << setw(10) << left << name << " \n";
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
-        cout << " Gan:     " << setw(10) << "палка : " << getPalkaDamage() << " урон\n";
+        cout << " Gan:     " << setw(10) << palca << getDamage() << " урон\n";
         cout << " Skills:  " << getStars() << " \n";
         cout << "+-------------------------+\n";
     }
@@ -137,7 +156,7 @@ public:
         cout << " Name:    " << setw(10) << left << name << " \n";
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
-        cout << " Gan:     " << setw(10) << "палка : " << getPalkaDamage() << " урон\n";
+        cout << " Gan:     " << setw(10) << palca << getDamage() << " урон\n";
         cout << " Skills:  " << getStars() << " \n";
         cout << "+-------------------------+\n";
     }
@@ -159,7 +178,7 @@ public:
         cout << " Name:    " << setw(10) << left << name << " \n";
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
-        cout << " Gan:     " << setw(10) << "палка : " << getPalkaDamage() << " урон\n";
+        cout << " Gan:     " << setw(10) << palca << getDamage() << " урон\n";
         cout << " Skills:  " << getStars() << " \n";
         cout << "+-------------------------+\n";
     }
@@ -181,7 +200,7 @@ public:
         cout << " Name:    " << setw(10) << left << name << " \n";
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
-        cout << " Gan:     " << setw(10) << "палка : " << getPalkaDamage() << " урон\n";
+        cout << " Gan:     " << setw(10) << palca << getDamage() << " урон\n";
         cout << " Skills:  " << getStars() << " \n";
         cout << "+-------------------------+\n";
     }
@@ -203,7 +222,7 @@ public:
         cout << " Name:    " << setw(10) << left << name << " \n";
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
-        cout << " Gan:     " << setw(10) << "палка : " << getPalkaDamage() << " урон\n";
+        cout << " Gan:     " << setw(10) << palca << getDamage() << " урон\n";
         cout << " Skills:  " << getStars() << " \n";
         cout << "+-------------------------+\n";
     }
