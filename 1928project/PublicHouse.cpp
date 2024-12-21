@@ -29,7 +29,7 @@ class sGoodJob : public PublicHouse {
 
 class sHardCore : public PublicHouse {
 	void Service() const override {
-		string sex_with = "мехгбеярмши лсфвхмю[? ? ? ]"; // мехгбеярмюъ фемыхмю [???] / мехгбеярмши лсфвхмю [???]
+		string sex_with = "мехгбеярмши лсфвхмю[???]"; // мехгбеярмюъ фемыхмю [???] / мехгбеярмши лсфвхмю [???]
 	}
 };
 
@@ -46,5 +46,16 @@ void NoNameMan() {
 }
 
 class PHdo : public PublicHouse {
-
+	cout << "бш гюькх б осакхвмши днл, оепед янани бш сбхдекх ьбюпжлемю б ьхйюпмни йпюямни ьсани.\nбш япюгс онмъкх, врн нм ашк йюй лхмхлсл йюй-рн ябъгюм я юдлхмхярпюжхеи дюммнцн йскэрспмнцн гюбедемхъ.";
+	cout << "\n\nбюьх деиярбхъ:\n[1] - бняонкэгнбюрэяъ сяксцни\n[2] - сирх\n\nбюь бшанп: ";
+	int vibor;
+	cin >> vibor;
+	switch (vibor) {
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+	}
 };
