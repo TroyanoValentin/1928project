@@ -72,7 +72,7 @@ public:
         pylemytFiresonDamage(50), 
         pylemytBlackwingDamage(55) 
     {} 
-    virtual void printInfo() const = 0;
+    virtual void printInfo() const = 0; //чисир виртул функция
     void increaseSkills() {
         if (kol_vs > 20) {
             skils += 3; // Увеличиваем на 3, если больше 20 боёв
