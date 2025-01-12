@@ -38,23 +38,24 @@ public:
         pylemyt_Fireson_P_1921("Пулемет Fireson P 1921"),
         pylemyt_Blackwing_L687("Пулемет Blackwing L687"),
         palcaDamage(10),
-        koctetDamage(30), 
+        koctetDamage(30),
         knifeDamage(25),
         pistolDamage(20),
-        vintofcaDamage(35), 
-        rifleDamage(40), 
-        pylemytFiresonDamage(50), 
+        vintofcaDamage(35),
+        rifleDamage(40),
+        pylemytFiresonDamage(50),
         pylemytBlackwingDamage(55)
-    {} 
+    {}
 };
 
-class Info : public Gan{
+class Info : public Gan {
 protected:
     string name;
     int skils;
     int hp;
+    int money;
     int kol_vs;
-    int palkaDamage; 
+    int palkaDamage;
     int koctetDamage;
     int knifeDamage;
     int pistolDamage;
@@ -64,14 +65,14 @@ protected:
     int pylemytBlackwingDamage;
 
 public:
-    Info() : skils(0), hp(0), kol_vs(0), palkaDamage(10), koctetDamage(30),  
-        knifeDamage(25),     
-        pistolDamage(20),       
-        vintofcaDamage(35),  
-        rifleDamage(40),         
-        pylemytFiresonDamage(50), 
-        pylemytBlackwingDamage(55) 
-    {} 
+    Info() : skils(0), hp(0), kol_vs(0), palkaDamage(10), koctetDamage(30),
+        knifeDamage(25),
+        pistolDamage(20),
+        vintofcaDamage(35),
+        rifleDamage(40),
+        pylemytFiresonDamage(50),
+        pylemytBlackwingDamage(55)
+    {}
     virtual void printInfo() const = 0; //чисир виртул функция
     void increaseSkills() {
         if (kol_vs > 20) {
@@ -103,7 +104,8 @@ public:
         name = "Мак Оуен Оруэл";
         skils = 6;
         hp = 100;
-        kol_vs = 22;
+        kol_vs = 0;
+        money = 0;
     }
 
     void printInfo() const override {
@@ -112,7 +114,8 @@ public:
         cout << " Name:    " << setw(10) << left << name << " \n";
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
-        cout << " Gan:     " << setw(10) <<  palca  << getDamage() << " урон\n";
+        cout << " Gan:     " << setw(10) << palca << getDamage() << " урон\n";
+        cout << " Money:    " << setw(10) << money << " \n";
         cout << " Skills:  " << getStars() << " \n";
         cout << "+-------------------------+\n";
     }
@@ -125,7 +128,8 @@ public:
         name = "Продавец";
         skils = 6;
         hp = 100;
-        kol_vs = 8; // Пример: меньше 10 боёв
+        kol_vs = 0; // Пример: меньше 10 боёв
+        money = 0;
     }
 
     void printInfo() const override {
@@ -135,6 +139,7 @@ public:
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
         cout << " Gan:     " << setw(10) << palca << getDamage() << " урон\n";
+        cout << " Money:    " << setw(10) << money << " \n";
         cout << " Skills:  " << getStars() << " \n";
         cout << "+-------------------------+\n";
     }
@@ -147,7 +152,8 @@ public:
         name = "Горожане";
         skils = 6;
         hp = 100;
-        kol_vs = 15;
+        kol_vs = 0;
+        money = 0;
     }
 
     void printInfo() const override {
@@ -157,6 +163,7 @@ public:
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
         cout << " Gan:     " << setw(10) << palca << getDamage() << " урон\n";
+        cout << " Money:    " << setw(10) << money << " \n";
         cout << " Skills:  " << getStars() << " \n";
         cout << "+-------------------------+\n";
     }
@@ -169,7 +176,8 @@ public:
         name = "Мафия";
         skils = 6;
         hp = 100;
-        kol_vs = 5;
+        kol_vs = 0;
+        money = 0;
     }
 
     void printInfo() const override {
@@ -179,6 +187,7 @@ public:
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
         cout << " Gan:     " << setw(10) << palca << getDamage() << " урон\n";
+        cout << " Money:    " << setw(10) << money << " \n";
         cout << " Skills:  " << getStars() << " \n";
         cout << "+-------------------------+\n";
     }
@@ -191,7 +200,8 @@ public:
         name = "Полицеские";
         skils = 6;
         hp = 100;
-        kol_vs = 20;
+        kol_vs = 0;
+        money = 0;
     }
 
     void printInfo() const override {
@@ -201,6 +211,7 @@ public:
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
         cout << " Gan:     " << setw(10) << palca << getDamage() << " урон\n";
+        cout << " Money:    " << setw(10) << money << " \n";
         cout << " Skills:  " << getStars() << " \n";
         cout << "+-------------------------+\n";
     }
@@ -213,7 +224,8 @@ public:
         name = "Активисты";
         skils = 6;
         hp = 100;
-        kol_vs = 11;
+        kol_vs = 0;
+        money = 0;
     }
 
     void printInfo() const override {
@@ -223,6 +235,7 @@ public:
         cout << " HP:      " << setw(10) << hp << " \n";
         cout << " kol_vs:  " << setw(10) << kol_vs << " \n";
         cout << " Gan:     " << setw(10) << palca << getDamage() << " урон\n";
+        cout << " Money:    " << setw(10) << money << " \n";
         cout << " Skills:  " << getStars() << " \n";
         cout << "+-------------------------+\n";
     }
