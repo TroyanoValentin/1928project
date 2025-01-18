@@ -9,8 +9,10 @@ using namespace std;
 
 class Inventory {
 protected:
+
     // ¡À»∆Õ»… ¡Œ…
     string punch = "/========\\\n|  ”À¿ » |\n\\========/"; //1
+
     string bonecrasher = "/========\\\n|  ¿—“≈“ |\n\\========/"; //2
     string zatochka = "/=========\\\n| «¿“Œ◊ ¿ |\n\\=========/"; //3
     string rose = "/===========\\\n|  –Œ«Œ◊ ¿  |\n| ìDe Buffî |\n\\===========/"; //4
@@ -44,6 +46,7 @@ protected:
 
     vector <string> inventory = { punch, pasport, buff, stick, buff, franckohplant, scotch, lom };
 public:
+    string stWpn = punch;
     Inventory() {}
 };
 
@@ -77,7 +80,12 @@ public:
             Clear();
 
             if (vbr1 == 1) {
+                cout << "\nŒÛÊËÂ ‚ ‚Â‰Û˘ÂÈ ÛÍÂ: \n";
+                RedStr(stWpn);
+                cout << endl << endl;
+
                 cout << "\n¬¿ÿ »Õ¬≈Õ“¿–‹: \n";
+
                 for (int i = 0; i < inventory.size(); i++) {
                     if ((inventory[i] == healing) || (inventory[i] == franckohplant)) {
                         GreenStr(inventory[i]);
@@ -107,7 +115,58 @@ public:
                 Clear();
             }
             if (vbr1 == 2) {
+                cout << "\n¬€¡»–»“≈  ¿ Œ… œ–≈ƒÃ≈“ ’Œ“»“≈ ¬«ﬂ“‹ ¬ –” ”: \n";
+                for (int i = 0; i < inventory.size(); i++) {
+                    if ((inventory[i] == punch) || (inventory[i] == bonecrasher) || (inventory[i] == zatochka) || (inventory[i] == rose) || (inventory[i] == stick) || (inventory[i] == knife)
+                        || (inventory[i] == fireson) || (inventory[i] == blackwing) || (inventory[i] == colt) || (inventory[i] == sf911) || (inventory[i] == nahan)) {
+                        RedStr(inventory[i]);
+                        cout << "\n";
+                    }
+                }
+                cout << "\n¬¿ÿ ¬€¡Œ–: ";
+                string pred;
+                cin >> pred;
 
+                if (pred == "kulaki") {
+                    stWpn = punch;
+                }
+                if (pred == "kostet") {
+                    stWpn = bonecrasher;
+                }
+                if (pred == "zatochka") {
+                    stWpn = zatochka;
+                }
+                if (pred == "rosachka") {
+                    stWpn = rose;
+                }
+                if (pred == "palka") {
+                    stWpn = stick;
+                }
+                if (pred == "nozh") {
+                    stWpn = knife;
+                }
+                if (pred == "faerson") {
+                    stWpn = fireson;
+                }
+                if (pred == "blackwing") {
+                    stWpn = blackwing;
+                }
+                if (pred == "colt") {
+                    stWpn = colt;
+                }
+                if (pred == "sf911") {
+                    stWpn = sf911;
+                }
+                if (pred == "nagan") {
+                    stWpn = nahan;
+                }
+
+                cout << endl;
+
+                UssrStr(skip);
+                cin.get();
+
+                Clear();
             }
 
             if (vbr1 == 3) {
