@@ -3,6 +3,8 @@
 #include <string>
 #include <algorithm>
 #include "Colors.h"
-#include "Inventory.h"
-
+#include "Pictures.h"
 using namespace std;
+
+void showServices();
+void fullServices();

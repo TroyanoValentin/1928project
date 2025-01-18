@@ -337,6 +337,13 @@ public:
                 string z = "\n[ ÂÛ ÇÀÊĞÛËÈ ÈÍÂÅÒÍÀĞÜ ]";
                 UssrStr(z);
                 *sour = 0;
+
+                cin.ignore();
+
+                UssrStr(skip);
+                cin.get();
+
+                Clear();
             }
         }
         catch (...) {
