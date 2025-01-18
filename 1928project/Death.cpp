@@ -1,27 +1,42 @@
-
 #include <iostream>
 #include <string>
-const void Les(string Les) {
-	Les = "Вы умерли заблужившись в лесу\n";
-  }
-
-const void Ytonyl(string Ytonyl) {
-	Ytonyl = "Вы умерли утонув в воде\n";
-}
-
-const void  Boy(string Boy) {
-	Boy = "Вы умерли утонув в воде\n";
-}
-
-const void Ifarkt(string Ifarkt) {
-	Ifarkt = "Вы умерли от инфаркта\n";
-}
-
-const void Vysota(string Vysota) {
-	Vysota = "Вы умерли упав с высоты\n";
-}
 using namespace std;
-int main()
-{
-  setlocale(LC_ALL, "Russian");
+void Les() {
+    string message = "Вы умерли заблужившись в лесу\n";
+    cout << "\033[31m" << message << "\033[0m";
+    cout << "\033[31m" << "\tВЫ ПРОИГРАЛИ\n" << "\033[0m";
+}
+
+void Ytonyl() {
+    string message = "Вы умерли утонув в воде\n";
+    cout << "\033[31m" << message << "\033[0m";
+    cout << "\033[31m" << "\tВЫ ПРОИГРАЛИ\n" << "\033[0m";
+}
+
+void Boy() {
+    string message = "Вы погибли в бою\n"; 
+    cout << "\033[31m" << message << "\033[0m";
+    cout << "\033[31m" << "\tВЫ ПРОИГРАЛИ\n" << "\033[0m";
+}
+
+void Ifarkt() {
+    string message = "Вы умерли от инфаркта\n";
+    cout << "\033[31m" << message << "\033[0m";
+    cout << "\033[31m" << "\tВЫ ПРОИГРАЛИ\n" << "\033[0m";
+}
+
+void Vysota() {
+    string message = "Вы умерли упав с высоты\n";
+    cout << "\033[31m" << message << "\033[0m";
+    cout << "\033[31m" << "\tВЫ ПРОИГРАЛИ\n" << "\033[0m";
+}
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    Les();
+    Ytonyl();
+    Boy();
+    Ifarkt();
+    Vysota();
+    return 0; 
 }
