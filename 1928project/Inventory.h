@@ -8,3 +8,11 @@ using namespace std;
 
 
 void DoAllInv();
+
+void CheckInvUrn();
+
+void CheckInvBox();
+
+void CheckInvWalls();
+
+void CheckInvLab();

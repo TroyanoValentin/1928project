@@ -49,7 +49,7 @@ public:
 
 class BaseInv : public Inventory {
 public:
-    void InvDo() {
+    void InvDo(bool* sour) {
         try {
             if (inventory.size() == 0) {
                 throw inventory;
@@ -277,6 +277,7 @@ public:
             if (vbr1 == 4) {
                 string z = "\n[ ВЫ ЗАКРЫЛИ ИНВЕТНАРЬ ]";
                 UssrStr(z);
+                *sour = 0;
             }
         }
         catch (...) {
@@ -372,15 +373,131 @@ public:
 };
 
 class CheckInv : public Inventory {
-    // УРНЫ, МУСОРНЫЕ БАКИ, ЗАРОСШИЕ УГЛЫ
+    // УРНЫ, ЯЩИКИ, ЗАРОСШИЕ УГЛЫ
+/*
+УРНЫ: ЛОМ, СТЕКЛО, БУТЫЛКА ПИВА “De Buff”
+ЯЩИКИ: ЛОМ, СТЕКЛО, ИЗОЛЕНТА, НОЖ
+ЗАРОСШИЕ УГЛЫ: РАСТЕНИЕ ФРАНЦА КОХА
+КОНЕЦ ЛАБИРИНТА: ПАЛКА (ЧИТ)
+*/
+public:
+    void ChUrn() {
+        srand(time(NULL));
+        string OpisGroup = "\n[ Вы решили осмотреть УРНУ ]\n[ В УРНЕ вы нашли ]:\n";
+        YellowStr(OpisGroup);
+        int r = rand() % 5;
+        if (r == 3) {
+            cout << "\n";
+            YellowStr(lom);
+            cout << "\n";
+            inventory.push_back(franckohplant);
+        }
+        else if (r == 4) {
+            cout << "\n";
+            YellowStr(glass);
+            cout << "\n";
+            inventory.push_back(glass);
+        }
+        else if (r == 5) {
+            cout << "\n";
+            YellowStr(buff);
+            cout << "\n";
+            inventory.push_back(buff);
+        }
+        else {
+            string nol = "\n[x] Н И Ч Е Г О [x]";
+            UssrStr(nol);
+        }
+        cout << "\n\n[ КОНЕЦ ОБЫСКА ]" << endl;
+    }
+    void ChBox() {
+        srand(time(NULL));
+        string OpisGroup = "\n[ Вы решили осмотреть ЯЩИК]\n[В ЯЩИКЕ вы нашли ]:\n";
+        int r = rand() % 5;
+        PurpleStr(OpisGroup);
+        if (r == 3) {
+            cout << "\n";
+            YellowStr(lom);
+            cout << "\n";
+            inventory.push_back(franckohplant);
+        }
+        if (r == 4) {
+            cout << "\n";
+            YellowStr(glass);
+            cout << "\n";
+            inventory.push_back(glass);
+        }
+        if (r == 5) {
+            cout << "\n";
+            RedStr(knife);
+            cout << "\n";
+            inventory.push_back(knife);
+        }
+        else {
+            string nol = "\n[x] Н И Ч Е Г О [x]";
+            UssrStr(nol);
+        }
+        cout << "\n\n[ КОНЕЦ ОБЫСКА ]" << endl;
+    }
+    void ChWalls() {
+        srand(time(NULL));
+        string OpisGroup = "\n[ Вы решили осмотреть ЗАРОСШИЙ УГОЛ]\n[В ЗАРОСШЕМ УГЛУ вы нашли ]:\n";
+        GreenStr(OpisGroup);
+        int r = rand() % 1;
+        if (r == 0) {
+            string nol = "\n[x] Н И Ч Е Г О [x]";
+            UssrStr(nol);
+        }
+        else {
+            cout << "\n";
+            GreenStr(franckohplant);
+            cout << "\n";
+            inventory.push_back(franckohplant);
 
-
+        }
+        cout << "\n\n[ КОНЕЦ ОБЫСКА ]" << endl;
+    }
+    void ChLab() {
+        string OpisGroup = "\n[ Вы увидели фиолетовый свет в ЛАБИРИНТЕ]\n[В ЛАБИРИНТЕ вы нашли ]:\n";
+        GreenStr(OpisGroup);
+        cout << "\033[38;2;255;0;255m" << stick << "\033[0m";
+        inventory.push_back(stick);
+    }
 };
 
 void DoAllInv() {
+
+    bool* sour1 = nullptr;
+    sour1 = new bool;
+    *sour1 = true;
+
     BaseInv inv;
     Inventory* ptr1 = &inv;
-    while (true) {
-        inv.InvDo();
+    while (*sour1 == true) {
+        inv.InvDo(sour1);
     }
+}
+
+void CheckInvUrn() {
+    CheckInv inv1;
+    Inventory* ptr2 = &inv1;
+    inv1.ChUrn();
+}
+
+void CheckInvBox() {
+    CheckInv inv2;
+    Inventory* ptr3 = &inv2;
+    inv2.ChBox();
+}
+
+void CheckInvWalls() {
+    CheckInv inv3;
+    Inventory* ptr4 = &inv3;
+    inv3.ChWalls();
+}
+
+void CheckInvLab() {
+    CheckInv inv4;
+    Inventory* ptr5 = &inv4;
+    inv4.ChLab();
 }
