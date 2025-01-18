@@ -372,5 +372,15 @@ public:
 };
 
 class CheckInv : public Inventory {
+    // ”–Õ€, Ã”—Œ–Õ€≈ ¡¿ », «¿–Œ—ÿ»≈ ”√À€
+
 
 };
+
+void DoAllInv() {
+    BaseInv inv;
+    Inventory* ptr1 = &inv;
+    while (true) {
+        inv.InvDo();
+    }
+}
