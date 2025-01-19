@@ -242,7 +242,7 @@ public:
 };
 
 // Главная функция
-int main() {
+int MainMenu() {
     setlocale(LC_ALL, "Russian");
 
     Gl object_Gl;
