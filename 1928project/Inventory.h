@@ -7,12 +7,12 @@
 using namespace std;
 
 
-void DoAllInv();
+void DoAllInv(); // Main func to Inv
 
-void CheckInvUrn();
+void CheckInvUrn(); // ”рна
 
-void CheckInvBox();
+void CheckInvBox(); // ящик
 
-void CheckInvWalls();
+void CheckInvWalls(); // «аросший угол
 
-void CheckInvLab();
+void CheckInvLab(); // Ћабиринт

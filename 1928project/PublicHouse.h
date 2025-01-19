@@ -8,3 +8,5 @@ using namespace std;
 
 void showServices();
 void fullServices();
+
+void PublicalHouse(); // MAIN func to PH
