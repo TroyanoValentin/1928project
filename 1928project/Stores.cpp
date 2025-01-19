@@ -7,7 +7,23 @@
 #include "Pictures.h"
 
 using namespace std;
-class WINCHER {
+class Wallet {
+    int Money_Dollars = 100;
+public:
+    Wallet() {
+        this->Money_Dollars = Money_Dollars;
+    }
+    void Wallet() {
+        if (Money_Dollars < 70) {
+            Money_Dollars++;
+        }
+        else {
+
+        }
+    }
+};
+
+class WINCHER : public Wallet {
     system("mode 650");
     setlocale(LC_ALL, "Russian");
     bool exit_is_WINCHER = 1;
@@ -148,7 +164,7 @@ class WINCHER {
 
 
 
-class HOUR_for_HOME {
+class HOUR_for_HOME : public Wallet {
     system("mode 650");
     setlocale(LC_ALL, "Russian");
     bool exit_is_HOUR_for_HOME = 1;
@@ -210,7 +226,7 @@ class HOUR_for_HOME {
 
 
 
-class WERLOCK_FARMACY {
+class WERLOCK_FARMACY : public Wallet{
     system("mode 650");
     setlocale(LC_ALL, "Russian");
     bool exit_is_WERLOCK_FARMACY = 1;
@@ -324,7 +340,7 @@ class WERLOCK_FARMACY {
 
 
 
-class Nelegal {
+class Nelegal : public Wallet{
     system("mode 650");
     setlocale(LC_ALL, "Russian");
     bool exit_is_Nelegal = 1;
