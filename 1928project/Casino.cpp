@@ -7,7 +7,7 @@
 
 using namespace std;
 void displayCards() {
-    setlocale(LC_ALL, "Russian");
+
     cout << " --------- \t\t\t " << " --------- \t\t\t " << " --------- \t\t\t " << " --------- \n";
     cout << "| J       |\t\t\t " << "| 10      |\t\t\t " << "| K       |\t\t\t " << "| Q       |\n";
     cout << "|         |\t\t\t " << "|         |\t\t\t " << "|         |\t\t\t " << "|         |\n";
@@ -25,23 +25,23 @@ private:
 
 public:
     SlotMachine() {
-        setlocale(LC_ALL, "Russian");
+      
         symbols = { '@', '#', ',', '^', '&', '*', '?', '<' };
         srand(static_cast<unsigned int>(time(0)));
     }
 
     char getRandomSymbol() {
-        setlocale(LC_ALL, "Russian");
+    
         return symbols[rand() % symbols.size()];
     }
 
     void displayInfo(char a1, char a2, char a3) {
-        setlocale(LC_ALL, "Russian");
+       
         cout << "|" << a1 << "|" << a2 << "|" << a3 << "|" << endl;
     }
 
     void play() {
-        setlocale(LC_ALL, "Russian");
+        
         while (true) {
             int key;
             char a1 = getRandomSymbol();
@@ -101,18 +101,18 @@ private:
 
 public:
     Ruletca() {
-        setlocale(LC_ALL, "Russian");
+       
         symbols1 = { "Красный1", "Красный2", "Красный3", "Черный25", "Черный29", "Черный12", "Черный18", "Зеленый0" };
         srand(static_cast<unsigned int>(time(0)));
     }
 
     string getRandomSymbol1() {
-        setlocale(LC_ALL, "Russian");
+    
         return symbols1[rand() % symbols1.size()];
     }
 
     void play1() {
-        setlocale(LC_ALL, "Russian");
+    
         while (true) {
             int key1;
             cout << "        _______\n";
@@ -188,18 +188,18 @@ private:
 
 public:
     A21() {
-        setlocale(LC_ALL, "Russian");
+      
         symbols1 = { 6, 7, 8, 9, 10, 11, 12, 13, 14 };
         srand(static_cast<unsigned int>(time(0)));
     }
 
     int getRandomSymbol() {
-        setlocale(LC_ALL, "Russian");
+    
         return symbols1[rand() % symbols1.size()];
     }
 
     void play1() {
-        setlocale(LC_ALL, "Russian");
+        
         while (true) {
             int key1;
             cout << endl;
