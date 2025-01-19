@@ -7,3 +7,4 @@
 #include "Pictures.h"
 
 using namespace std;
+void WINCHER_();
