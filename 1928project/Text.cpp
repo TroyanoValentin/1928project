@@ -3,10 +3,6 @@
 #include <iomanip>
 using namespace std;
 
-#include <iostream>
-#include <string>
-using namespace std;
-
 class Gan {
 protected:
     string palca;
