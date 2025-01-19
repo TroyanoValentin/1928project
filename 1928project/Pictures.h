@@ -9,7 +9,7 @@ void Kind_Man();
 void BOO();
 void Burocraty();
 void YOU();
-void Stranger()
+void Stranger();
 void Nice_Coat();
 void Dress();
 void Nice_Shoes();

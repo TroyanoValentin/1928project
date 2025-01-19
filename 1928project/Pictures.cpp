@@ -822,7 +822,7 @@ void Vhiskey() {
                         . ....             ...                            
                                                                           
                                                                           
-                                                                          )"
+                                                                          )";
 }
 
 void Bandage() {

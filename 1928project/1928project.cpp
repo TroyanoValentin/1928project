@@ -12,7 +12,6 @@
 #include "Locations.h"
 #include "Stores.h"
 #include "Fight.h"
-
 using namespace std;
 // ModularCodeBlocks.cpp : По предложению Кирилла, было принято решение разбить все локации на одинаковые части, из которых, как конструктор, можно будет собрать и снова!
 /*
@@ -548,6 +547,15 @@ void Start() { // Старт
             break;
         case 9:
             PublicalHouse();
+            break;
+        case 10:
+            cout << MainCasino();
+            break;
+        case 11:
+            cout << MainMenu();
+            break;
+        case 12:
+            cout << MainMenu();
             break;
         }
 

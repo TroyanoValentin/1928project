@@ -13,7 +13,7 @@ public:
     Wallet() {
         this->Money_Dollars = Money_Dollars;
     }
-    void Wallet() {
+    void Wallet1() {
         if (Money_Dollars < 70) {
             Money_Dollars++;
         }
