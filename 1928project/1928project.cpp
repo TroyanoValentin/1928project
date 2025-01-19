@@ -555,7 +555,16 @@ void Start() { // Старт
             cout << MainMenu();
             break;
         case 12:
-            cout << MainMenu();
+            StoreWincher();
+            break;
+        case 13:
+            StoreHOUR();
+            break;
+        case 14:
+            StoreWERLOCK();
+            break;
+        case 15:
+            StoreNelegal();
             break;
         }
 

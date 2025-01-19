@@ -7,8 +7,7 @@
 #include "Pictures.h"
 
 using namespace std;
-void Wallet1();
-void WINCHER_();
-void HOUR_for_HOME_();
-void WERLOCK_FARMACY_();
-void Nelegal_();
+void StoreWincher();
+void StoreHOUR();
+void StoreWERLOCK();
+void StoreNelegal();

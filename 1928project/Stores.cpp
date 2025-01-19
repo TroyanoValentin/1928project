@@ -598,3 +598,31 @@ public:
         }
     }
 };
+
+void StoreWincher() {
+    WINCHER obj;
+    Wallet* ptr = &obj;
+    obj.Wallet1();
+    obj.WINCHER_();
+}
+
+void StoreHOUR() {
+    HOUR_for_HOME obj;
+    Wallet* ptr = &obj;
+    obj.Wallet1();
+    obj.HOUR_for_HOME_();
+}
+
+void StoreWERLOCK() {
+    WERLOCK_FARMACY obj;
+    Wallet* ptr = &obj;
+    obj.Wallet1();
+    obj.WERLOCK_FARMACY_();
+}
+
+void StoreNelegal() {
+    Nelegal obj;
+    Wallet* ptr = &obj;
+    obj.Wallet1();
+    obj.Nelegal_();
+}
