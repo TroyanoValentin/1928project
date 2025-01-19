@@ -31,7 +31,7 @@ void Vysota() {
     cout << "\033[31m" << "\tВЫ ПРОИГРАЛИ\n" << "\033[0m";
 }
 
-int main() {
+int Deaths() {
     setlocale(LC_ALL, "Russian");
     Les();
     Ytonyl();

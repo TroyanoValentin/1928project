@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="Casino.h" />
     <ClInclude Include="Colors.h" />
+    <ClInclude Include="Death.h" />
     <ClInclude Include="Fight.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Locations.h" />
